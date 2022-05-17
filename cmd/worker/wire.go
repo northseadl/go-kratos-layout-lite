@@ -15,5 +15,5 @@ import (
 )
 
 func wireWorker(confData *conf.Data, logger log.Logger) (*worker.Worker, func(), error) {
-	panic(wire.Build(biz.ProviderSet, data.ProviderSet, worker.ProviderSet))
+	panic(wire.Build(biz.WorkerProviderSet, data.ProviderSet, worker.ProviderSet))
 }

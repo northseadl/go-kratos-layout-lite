@@ -1,22 +1,19 @@
 # Generated with protoc-gen-openapi
-# https://github.com/google/gnostic/tree/master/cmd/protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/apps/protoc-gen-openapi
 
 openapi: 3.0.3
 info:
-    title: Greeter API
-    description: The greeting service definition.
+    title: Hello API
     version: 0.0.1
 paths:
-    /helloworld/{name}:
+    /v1/hello:
         get:
             tags:
-                - Greeter
-            description: Sends a greeting
-            operationId: Greeter_SayHello
+                - Hello
+            operationId: Hello_Hello
             parameters:
-                - name: name
-                  in: path
-                  required: true
+                - name: msg
+                  in: query
                   schema:
                     type: string
             responses:
@@ -25,14 +22,40 @@ paths:
                     content:
                         application/json:
                             schema:
-                                $ref: '#/components/schemas/.helloworld.v1.HelloReply'
+                                $ref: '#/components/schemas/HelloReply'
+        post:
+            tags:
+                - Hello
+            operationId: Hello_Hi
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/HiRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/HiReply'
 components:
     schemas:
-        .helloworld.v1.HelloReply:
+        HelloReply:
             type: object
             properties:
-                message:
+                msg:
                     type: string
-            description: The response message containing the greetings
+        HiReply:
+            type: object
+            properties:
+                msg:
+                    type: string
+        HiRequest:
+            type: object
+            properties:
+                msg:
+                    type: string
 tags:
-    - name: Greeter
+    - name: Hello

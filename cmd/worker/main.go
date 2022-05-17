@@ -5,9 +5,9 @@ import (
 	"github.com/go-kratos/kratos/v2/config"
 	"github.com/go-kratos/kratos/v2/config/file"
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/northseadl/gopkg/clog"
 	"github.com/rs/zerolog"
 	"go-kratos-layout-lite/internal/conf"
-	clog "go-kratos-layout-lite/pkg/log"
 	"gopkg.in/natefinch/lumberjack.v2"
 	"os"
 )

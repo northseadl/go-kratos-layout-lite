@@ -6,14 +6,14 @@ import (
 	"go-kratos-layout-lite/internal/biz"
 )
 
-// ProviderSet is work providers.
 var ProviderSet = wire.NewSet(NewWorker)
 
 var works []Work
 
 type Worker struct {
-	h  *log.Helper
-	uc *biz.GreeterUC
+	h *log.Helper
+
+	euc *biz.HelloUC
 }
 
 type WorkFunc func(worker *Worker)
@@ -45,10 +45,10 @@ type Work struct {
 	WorkFunc WorkFunc
 }
 
-func NewWorker(logger log.Logger, uc *biz.GreeterUC) *Worker {
+func NewWorker(logger log.Logger, euc *biz.HelloUC) *Worker {
 	worker := Worker{
-		h:  log.NewHelper(logger),
-		uc: uc,
+		h:   log.NewHelper(logger),
+		euc: euc,
 	}
 	worker.registerWork("hello", HelloWork)
 	return &worker

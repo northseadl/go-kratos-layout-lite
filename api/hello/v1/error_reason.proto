@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package api.event.v1;
+
+option go_package = "event-service/api/event/v1;v1";
+option java_multiple_files = true;
+option java_package = "api.event.v1";
+
+import "errors/errors.proto";
+
+enum ErrorReason {
+  NOT_FOUND = 0 [(errors.code) = 404];
+  INVALID_PARAMS = 1 [(errors.code) = 400];
+  UN_AUTHORIZATION = 2 [(errors.code) = 304];
+  UN_KNOW = 3 [(errors.code) = 500];
+}

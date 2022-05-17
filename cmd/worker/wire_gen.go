@@ -21,8 +21,8 @@ func wireWorker(confData *conf.Data, logger log.Logger) (*worker.Worker, func(),
 	if err != nil {
 		return nil, nil, err
 	}
-	greeterUC := biz.NewGreeterUsecase(dataData, logger)
-	workerWorker := worker.NewWorker(logger, greeterUC)
+	helloUC := biz.NewHelloUC(dataData, logger)
+	workerWorker := worker.NewWorker(logger, helloUC)
 	return workerWorker, func() {
 		cleanup()
 	}, nil

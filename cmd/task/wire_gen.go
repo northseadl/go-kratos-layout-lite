@@ -21,8 +21,8 @@ func wireTasker(confData *conf.Data, logger log.Logger) (*task.Tasker, func(), e
 	if err != nil {
 		return nil, nil, err
 	}
-	greeterUC := biz.NewGreeterUsecase(dataData, logger)
-	tasker := task.NewTasker(logger, greeterUC)
+	helloUC := biz.NewHelloUC(dataData, logger)
+	tasker := task.NewTasker(logger, helloUC)
 	return tasker, func() {
 		cleanup()
 	}, nil

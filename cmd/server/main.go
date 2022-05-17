@@ -2,8 +2,8 @@ package main
 
 import (
 	"flag"
+	"github.com/northseadl/gopkg/clog"
 	"github.com/rs/zerolog"
-	clog "go-kratos-layout-lite/pkg/log"
 	"gopkg.in/natefinch/lumberjack.v2"
 	"os"
 

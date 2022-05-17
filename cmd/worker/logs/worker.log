@@ -1,2 +1,0 @@
-{"level":"info","ts":"2022-04-28T10:54:56+08:00","caller":"config.go:107","service.id":"localhost","service.name":"-worker","service.version":"","msg":"config loaded: config.yaml format: yaml"}
-{"level":"info","ts":"2022-04-28T10:54:56+08:00","caller":"hello.go:8","service.id":"localhost","service.name":"-worker","service.version":"","msg":"hello work !!!!"}

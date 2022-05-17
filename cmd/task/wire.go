@@ -15,5 +15,5 @@ import (
 )
 
 func wireTasker(*conf.Data, log.Logger) (*task.Tasker, func(), error) {
-	panic(wire.Build(data.ProviderSet, biz.ProviderSet, task.ProviderSet))
+	panic(wire.Build(data.ProviderSet, biz.TaskProviderSet, task.ProviderSet))
 }

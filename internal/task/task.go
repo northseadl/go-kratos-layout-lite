@@ -11,17 +11,19 @@ import (
 var ProviderSet = wire.NewSet(NewTasker)
 
 type Tasker struct {
-	ucg     *biz.GreeterUC
 	h       *log.Helper
 	taskMap map[string]ITaskFunc
+
+	euc *biz.HelloUC
 }
 
 type ITaskFunc func(params []string, tasker *Tasker) error
 
-func NewTasker(logger log.Logger, ucg *biz.GreeterUC) *Tasker {
+func NewTasker(logger log.Logger, euc *biz.HelloUC) *Tasker {
 	tasker := Tasker{
-		ucg: ucg,
-		h:   log.NewHelper(logger),
+		h: log.NewHelper(logger),
+
+		euc: euc,
 	}
 	tasker.registerTask("hello", helloTask)
 	return &tasker

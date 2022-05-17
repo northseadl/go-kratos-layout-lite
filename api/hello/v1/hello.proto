@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package api.hello.v1;
+
+import "google/api/annotations.proto";
+import "validate/validate.proto";
+
+option go_package = "go-kratos-layout-lite/api/hello/v1;v1";
+option java_multiple_files = true;
+option java_package = "api.hello.v1";
+
+service Hello {
+  rpc Hello (HelloRequest) returns (HelloReply) {
+    option (google.api.http) = {
+      get: "/v1/hello",
+    };
+  };
+  rpc Hi (HiRequest) returns (HiReply) {
+    option (google.api.http) = {
+      post: "/v1/hello",
+      body: "*"
+    };
+  };
+}
+
+message HelloRequest {
+  string msg = 1;
+}
+
+message HelloReply {
+  string msg = 1;
+}
+
+message HiRequest {
+  string msg = 1 [(validate.rules).string = {min_len: 3}];
+}
+
+message HiReply {
+  string msg = 1;
+}
